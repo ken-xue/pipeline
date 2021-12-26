@@ -8,4 +8,7 @@ import java.lang.annotation.Target;
 @Target({ElementType.TYPE})
 @Retention(RetentionPolicy.SOURCE)
 public @interface  Step {
+    String value() default "";
+    int[] order() default 0;
+    boolean parallel() default false;
 }
