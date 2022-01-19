@@ -1,4 +1,4 @@
-package io.kenxue.pipeline.pipeline;
+package io.kenxue.pipeline;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -9,5 +9,11 @@ class PipelineApplicationTests {
     @Test
     void contextLoads() {
     }
+
+    @Test
+    void appPipelineTest() {
+
+    }
+
 
 }
