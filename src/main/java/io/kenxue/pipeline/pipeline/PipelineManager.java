@@ -1,7 +1,5 @@
 package io.kenxue.pipeline.pipeline;
 
-import io.kenxue.pipeline.pipeline.Pipeline;
-
 import java.util.List;
 
 public interface PipelineManager {

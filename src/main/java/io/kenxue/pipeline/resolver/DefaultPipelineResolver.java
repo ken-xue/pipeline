@@ -2,6 +2,7 @@ package io.kenxue.pipeline.resolver;
 
 import io.kenxue.pipeline.loader.PhaseDefinitionLoader;
 import io.kenxue.pipeline.loader.PipelineDefinitionLoader;
+import io.kenxue.pipeline.loader.StepDefinitionLoader;
 import io.kenxue.pipeline.pipeline.*;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public class DefaultPipelineResolver implements PipelineResolver {
 
     @Override
     public Pipeline getPipeline(String name) {
-        return null;
+        return pipelineManager.getPipeline(name);
     }
 
     @Override

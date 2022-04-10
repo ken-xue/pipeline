@@ -1,4 +1,6 @@
-package io.kenxue.pipeline.resolver;
+package io.kenxue.pipeline.loader;
+
+import io.kenxue.pipeline.step.StepDefinition;
 
 import java.util.List;
 

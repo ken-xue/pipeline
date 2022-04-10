@@ -1,6 +1,5 @@
 package io.kenxue.pipeline.pipeline;
 
-import io.kenxue.pipeline.pipeline.Pipeline;
 import io.kenxue.pipeline.resolver.ExecuteContext;
 
 import java.util.List;

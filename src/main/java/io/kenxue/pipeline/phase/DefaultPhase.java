@@ -7,7 +7,7 @@ public class DefaultPhase extends BasePhase{
 
     @Override
     public Result execute(ExecuteContext context) {
-        return null;
+        return this.doExecute(context);
     }
 
     @Override
@@ -17,6 +17,6 @@ public class DefaultPhase extends BasePhase{
 
     @Override
     public boolean isParallel() {
-        return false;
+        return this.isParallel;
     }
 }

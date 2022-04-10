@@ -1,4 +1,4 @@
-package io.kenxue.pipeline.resolver;
+package io.kenxue.pipeline.loader;
 
 import java.util.List;
 

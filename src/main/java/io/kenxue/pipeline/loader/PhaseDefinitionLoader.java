@@ -1,7 +1,6 @@
 package io.kenxue.pipeline.loader;
 
 import io.kenxue.pipeline.phase.PhaseDefinition;
-import io.kenxue.pipeline.resolver.DefinitionLoader;
 
 import java.util.List;
 

@@ -1,8 +1,13 @@
 package io.kenxue.pipeline.pipeline;
 
+import io.kenxue.pipeline.cache.PipelineCache;
+
 import java.util.List;
 
 public class DefaultPipelineManager implements PipelineManager {
+
+    private PipelineCache pipelineCache;
+
     @Override
     public List<Pipeline> getPipelines(List<String> names) {
         return null;
@@ -10,7 +15,7 @@ public class DefaultPipelineManager implements PipelineManager {
 
     @Override
     public Pipeline getPipeline(String name) {
-        return null;
+        return pipelineCache.get(name);
     }
 
     @Override

@@ -16,7 +16,7 @@ public abstract class BasePhase implements  Phase{
     protected StepManager stepManager;
 
     protected Result doExecute(ExecuteContext context){
-        return null;
+        return executor.execute(context);
     }
 
 }

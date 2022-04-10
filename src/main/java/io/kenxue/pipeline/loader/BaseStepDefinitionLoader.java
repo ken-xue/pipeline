@@ -1,8 +1,6 @@
 package io.kenxue.pipeline.loader;
 
-import io.kenxue.pipeline.resolver.StepDefinition;
-import io.kenxue.pipeline.resolver.StepDefinitionLoader;
-import io.kenxue.pipeline.step.Step;
+import io.kenxue.pipeline.step.StepDefinition;
 
 import java.util.List;
 
