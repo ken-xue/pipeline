@@ -19,7 +19,6 @@ public class BasePipelineDefinitionLoader implements PipelineDefinitionLoader {
     protected List<PipelineDefinition> doReloadAll() {
         return null;
     }
-
     
     protected PipelineDefinition doReload(String name) {
         return null;

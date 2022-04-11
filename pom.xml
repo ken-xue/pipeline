@@ -47,7 +47,11 @@
             <artifactId>guava</artifactId>
             <version>31.0.1-jre</version>
         </dependency>
-
+        <dependency>
+            <groupId>com.jiaozhen.investigate</groupId>
+            <artifactId>share-dataobject</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
     </dependencies>
 
     <build>
