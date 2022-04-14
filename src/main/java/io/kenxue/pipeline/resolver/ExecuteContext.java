@@ -1,18 +1,21 @@
 package io.kenxue.pipeline.resolver;
 
+import lombok.Data;
+
 import java.util.Map;
 
+@Data
 public class ExecuteContext {
 
-    Command command;
+    private Command command;
 
-    Map<String,Object> attributes;
+    private Map<String,Object> attributes;
 
-    Object getAttributes(String name){
+    private Object getAttributes(String name){
         return attributes.get(name);
     }
 
-    void setAttributes(String name,Object value){
+    private void setAttributes(String name,Object value){
         attributes.put(name,value);
     }
 }

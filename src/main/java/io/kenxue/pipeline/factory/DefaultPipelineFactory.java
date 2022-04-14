@@ -1,6 +1,7 @@
 package io.kenxue.pipeline.factory;
 
 import io.kenxue.pipeline.phase.PhaseManager;
+import io.kenxue.pipeline.pipeline.DefaultPipeline;
 import io.kenxue.pipeline.pipeline.Pipeline;
 import io.kenxue.pipeline.pipeline.PipelineDefinition;
 import io.kenxue.pipeline.pipeline.PipelineFactory;
@@ -11,6 +12,7 @@ public class DefaultPipelineFactory extends PipelineFactory {
 
     @Override
     public Pipeline create(PipelineDefinition pipelineDefinition) {
-        return null;
+        DefaultPipeline defaultPipeline = new DefaultPipeline();
+        return defaultPipeline;
     }
 }

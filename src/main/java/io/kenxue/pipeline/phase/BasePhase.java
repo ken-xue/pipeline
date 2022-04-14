@@ -7,7 +7,7 @@ import io.kenxue.pipeline.step.StepManager;
 
 import java.util.List;
 
-public abstract class BasePhase implements  Phase{
+public abstract class BasePhase implements Phase{
 
     protected String name;
     protected List<String> steps;

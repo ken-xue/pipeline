@@ -1,32 +1,64 @@
 package io.kenxue.pipeline.resolver;
 
-import io.kenxue.pipeline.loader.PhaseDefinitionLoader;
-import io.kenxue.pipeline.loader.PipelineDefinitionLoader;
-import io.kenxue.pipeline.loader.StepDefinitionLoader;
+import io.kenxue.pipeline.factory.DefaultPipelineFactory;
+import io.kenxue.pipeline.loader.*;
 import io.kenxue.pipeline.pipeline.*;
 
-import java.util.List;
+import java.util.*;
 
 public class DefaultPipelineResolver implements PipelineResolver {
 
-    public List<PipelineDefinitionLoader> pipelineDefinitionLoaders;
-    public List<PhaseDefinitionLoader> phaseDefinitionLoaders;
-    public List<StepDefinitionLoader> stepDefinitionLoaders;
-    public PipelineManager pipelineManager;
-    public PipelineFactory pipelineFactory;
+    private List<PipelineDefinitionLoader> pipelineDefinitionLoaders = new ArrayList<>(2 << 4);
+    private List<PhaseDefinitionLoader> phaseDefinitionLoaders = new ArrayList<>(2 << 4);
+    private List<StepDefinitionLoader> stepDefinitionLoaders = new ArrayList<>(2 << 4);
+    private PipelineManager pipelineManager;
+    private PipelineFactory pipelineFactory;
 
-    public void init(){
-
+    public void init() {
+        pipelineDefinitionLoaders.addAll(Arrays.asList(
+                new MysqlPipelineDefinitionLoader(),
+                new AnnotatedPipelineDefinitionLoader()
+        ));
+        phaseDefinitionLoaders.addAll(Arrays.asList(
+                new AnnotatedPhaseDefinitionLoader()
+        ));
+        stepDefinitionLoaders.addAll(Arrays.asList(
+                new AnnotatedStepDefinitionLoader()
+        ));
+        pipelineManager = new DefaultPipelineManager();
+        pipelineFactory = new DefaultPipelineFactory();
     }
 
     @Override
     public Pipeline getPipeline(String name) {
-        return pipelineManager.getPipeline(name);
+        Pipeline pipeline = pipelineManager.getPipeline(name);
+        if (Objects.nonNull(pipeline)) return pipeline;
+        //没有则尝试创建
+        for (PipelineDefinitionLoader pipelineDefinitionLoader : pipelineDefinitionLoaders) {
+            PipelineDefinition pipelineDefinition = pipelineDefinitionLoader.reload(name);
+            if (Objects.nonNull(pipelineDefinition)) {
+                pipeline = pipelineFactory.create(pipelineDefinition);
+                pipelineManager.add(pipeline);
+                break;
+            }
+        }
+        return pipeline;
     }
 
     @Override
     public List<Pipeline> getAllPipelines() {
-        return null;
+        List<Pipeline> pipelines = new ArrayList<>();
+        for (PipelineDefinitionLoader pipelineDefinitionLoader : pipelineDefinitionLoaders) {
+            List<PipelineDefinition> pipelineDefinitionList = pipelineDefinitionLoader.reloadAll();
+            if (Objects.nonNull(pipelineDefinitionList)) {
+                pipelineDefinitionList.forEach(pipelineDefinition -> {
+                    Pipeline pipeline = pipelineFactory.create(pipelineDefinition);
+                    pipelines.add(pipeline);
+                    pipelineManager.add(pipeline);
+                });
+            }
+        }
+        return pipelines;
     }
 
     @Override

@@ -7,6 +7,7 @@ public class DefaultStepFactory implements StepFactory{
 
     @Override
     public Step create(StepDefinition definition) {
+        String stepName = definition.getName();
 
         return null;
     }

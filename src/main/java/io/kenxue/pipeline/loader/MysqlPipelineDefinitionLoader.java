@@ -4,7 +4,11 @@ import io.kenxue.pipeline.pipeline.PipelineDefinition;
 
 import java.util.List;
 
+/**
+ * mysql加载pipeline加载器
+ */
 public class MysqlPipelineDefinitionLoader extends BasePipelineDefinitionLoader{
+
     @Override
     public List<PipelineDefinition> reloadAll() {
         return super.reloadAll();

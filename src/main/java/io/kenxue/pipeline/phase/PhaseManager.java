@@ -8,6 +8,6 @@ public interface PhaseManager {
     void update(Phase phase);
     void add(Phase phase);
     void addAll(List<Phase> phases);
-    void remove(String name);
-    void removeAll(List<String> names);
+    Phase remove(String name);
+    List<Phase> removeAll(List<String> names);
 }

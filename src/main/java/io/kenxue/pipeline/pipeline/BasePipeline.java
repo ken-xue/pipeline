@@ -3,9 +3,10 @@ package io.kenxue.pipeline.pipeline;
 import io.kenxue.pipeline.phase.PhaseManager;
 import io.kenxue.pipeline.resolver.ExecuteContext;
 import io.kenxue.pipeline.resolver.Result;
+import lombok.Data;
 
 import java.util.List;
-
+@Data
 public class BasePipeline implements Pipeline {
 
     private String name;

@@ -1,6 +1,5 @@
-package io.kenxue.pipeline;
+package io.kenxue.pipeline.annotation;
 
-import io.kenxue.pipeline.annotation.Phase;
 import io.kenxue.pipeline.resolver.ExecuteContext;
 
 import javax.annotation.Resource;
@@ -11,7 +10,7 @@ public class JavaBuildPhase {
     @Resource
     private JavaBuildStep javaBuildStep;
     @Resource
-    private JavaBuildPackageStep javaBuildPackageStep;
+    private JavaPackageStep javaPackageStep;
     //省略其它step
 
     public void execute(ExecuteContext context){

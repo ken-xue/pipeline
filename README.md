@@ -12,7 +12,7 @@
 
 ## Introduction
 
-> 轻量级的流程编排执行引擎
+> 轻量级的流程编排执行引擎,支持从代码和数据库加载流程进行执行。
 
 ## QuickStart
 
@@ -22,6 +22,3 @@
 ## License
 
 MIT see [LICENSE](./LICENSE).
-
-
-https://www.jianshu.com/p/25131a9e7d0f

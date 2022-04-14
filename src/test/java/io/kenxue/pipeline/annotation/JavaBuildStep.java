@@ -1,6 +1,5 @@
-package io.kenxue.pipeline;
+package io.kenxue.pipeline.annotation;
 
-import io.kenxue.pipeline.annotation.Step;
 import io.kenxue.pipeline.resolver.ExecuteContext;
 
 @Step
