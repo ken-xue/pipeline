@@ -7,6 +7,7 @@ import io.kenxue.pipeline.pipeline.Pipeline;
 import io.kenxue.pipeline.pipeline.PipelineDefinition;
 import io.kenxue.pipeline.pipeline.PipelineFactory;
 
+import javax.annotation.Resource;
 import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
@@ -14,6 +15,7 @@ import java.util.Objects;
 
 public class DefaultPipelineFactory extends PipelineFactory {
 
+    @Resource
     private PhaseManager phaseManager;
 
     @Override

@@ -3,11 +3,11 @@ package io.kenxue.pipeline.step;
 import java.util.List;
 
 public interface StepManager {
-    List<Step> getSteps(List<String> names);
-    Step getStep(String name);
-    void update(Step step);
-    void add(Step step);
-    void addAll(List<Step> steps);
-    Step remove(String name);
-    List<Step> removeAll(List<String> names);
+    List<StepI> getSteps(List<String> names);
+    StepI getStep(String name);
+    void update(StepI stepI);
+    void add(StepI stepI);
+    void addAll(List<StepI> stepIS);
+    StepI remove(String name);
+    List<StepI> removeAll(List<String> names);
 }

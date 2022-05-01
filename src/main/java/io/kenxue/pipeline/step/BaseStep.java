@@ -2,9 +2,8 @@ package io.kenxue.pipeline.step;
 
 import io.kenxue.pipeline.resolver.ExecuteContext;
 import io.kenxue.pipeline.resolver.Result;
-import io.kenxue.pipeline.step.Step;
 
-public abstract class BaseStep implements Step {
+public abstract class BaseStep implements StepI {
 
     public String name;
 

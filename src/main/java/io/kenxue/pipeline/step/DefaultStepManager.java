@@ -9,43 +9,43 @@ import java.util.Map;
  */
 public class DefaultStepManager implements StepManager {
 
-    public Map<String, Step> steps;
+    public Map<String, StepI> steps;
 
     @Override
-    public List<Step> getSteps(List<String> names) {
-        List<Step> ret = new LinkedList<>();
+    public List<StepI> getSteps(List<String> names) {
+        List<StepI> ret = new LinkedList<>();
         names.forEach(name->ret.add(this.steps.get(name)));
         return ret;
     }
 
     @Override
-    public Step getStep(String name) {
+    public StepI getStep(String name) {
         return steps.get(name);
     }
 
     @Override
-    public void update(Step step) {
-        steps.put(step.getName(),step);
+    public void update(StepI stepI) {
+        steps.put(stepI.getName(), stepI);
     }
 
     @Override
-    public void add(Step step) {
-        steps.put(step.getName(),step);
+    public void add(StepI stepI) {
+        steps.put(stepI.getName(), stepI);
     }
 
     @Override
-    public void addAll(List<Step> steps) {
-        steps.forEach(s->this.steps.put(s.getName(),s));
+    public void addAll(List<StepI> stepIS) {
+        stepIS.forEach(s->this.steps.put(s.getName(),s));
     }
 
     @Override
-    public Step remove(String name) {
+    public StepI remove(String name) {
         return steps.remove(name);
     }
 
     @Override
-    public List<Step> removeAll(List<String> names) {
-        List<Step> ret = new LinkedList<>();
+    public List<StepI> removeAll(List<String> names) {
+        List<StepI> ret = new LinkedList<>();
         names.forEach(name->ret.add(this.steps.remove(name)));
         return ret;
     }
