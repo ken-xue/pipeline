@@ -7,10 +7,10 @@ import io.kenxue.pipeline.resolver.ExecuteContext;
 import io.kenxue.pipeline.resolver.Result;
 import org.junit.Test;
 
-public class PipelineApplicationTests {
+public class PipelineTests {
 
     @Test
-    public void appPipelineTest() {
+    public void annotationPipelineTest() {
         PipelineResolverFactoryBean pipelineResolverFactoryBean = new PipelineResolverFactoryBean();
         ExecuteContext executeContext = new ExecuteContext();
         executeContext.setCommand(() -> JavaAppPipeline.class.getName());
@@ -20,6 +20,5 @@ public class PipelineApplicationTests {
         System.out.println(result.getAll());
         System.out.println(result);
     }
-
 
 }

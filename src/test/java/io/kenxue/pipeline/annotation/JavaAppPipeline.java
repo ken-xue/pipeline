@@ -1,5 +1,8 @@
 package io.kenxue.pipeline.annotation;
 
+import io.kenxue.pipeline.annotation.phase.JavaBuildPhase;
+import io.kenxue.pipeline.annotation.phase.JavaDeployPhase;
+
 import javax.annotation.Resource;
 
 @Pipeline("Java应用流水线")

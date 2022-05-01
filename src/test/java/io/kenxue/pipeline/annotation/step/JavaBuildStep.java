@@ -1,5 +1,6 @@
-package io.kenxue.pipeline.annotation;
+package io.kenxue.pipeline.annotation.step;
 
+import io.kenxue.pipeline.annotation.Step;
 import io.kenxue.pipeline.resolver.ExecuteContext;
 
 @Step(name = "JavaBuildStep")
