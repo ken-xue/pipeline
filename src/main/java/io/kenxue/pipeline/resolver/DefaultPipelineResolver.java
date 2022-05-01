@@ -14,26 +14,22 @@ public class DefaultPipelineResolver implements PipelineResolver {
     private PipelineManager pipelineManager;
     private PipelineFactory pipelineFactory;
 
-    public void init() {
-        pipelineDefinitionLoaders.addAll(Arrays.asList(
-                new MysqlPipelineDefinitionLoader(),
-                new AnnotatedPipelineDefinitionLoader()
-        ));
-        phaseDefinitionLoaders.addAll(Arrays.asList(
-                new AnnotatedPhaseDefinitionLoader()
-        ));
-        stepDefinitionLoaders.addAll(Arrays.asList(
-                new AnnotatedStepDefinitionLoader()
-        ));
+    public DefaultPipelineResolver initialize() {
+        // SPI loading process loader
+        ServiceLoader.load(PipelineDefinitionLoader.class).forEach(v->pipelineDefinitionLoaders.add(v));
+        ServiceLoader.load(PhaseDefinitionLoader.class).forEach(v->phaseDefinitionLoaders.add(v));
+        ServiceLoader.load(StepDefinitionLoader.class).forEach(v->stepDefinitionLoaders.add(v));
+
         pipelineManager = new DefaultPipelineManager();
         pipelineFactory = new DefaultPipelineFactory();
+        return this;
     }
 
     @Override
     public Pipeline getPipeline(String name) {
         Pipeline pipeline = pipelineManager.getPipeline(name);
         if (Objects.nonNull(pipeline)) return pipeline;
-        //没有则尝试创建
+        //If not, try to loading
         for (PipelineDefinitionLoader pipelineDefinitionLoader : pipelineDefinitionLoaders) {
             PipelineDefinition pipelineDefinition = pipelineDefinitionLoader.reload(name);
             if (Objects.nonNull(pipelineDefinition)) {
@@ -63,6 +59,9 @@ public class DefaultPipelineResolver implements PipelineResolver {
 
     @Override
     public Pipeline resolverPipeline(ExecuteContext context) {
-        return null;
+
+        Pipeline pipeline = getPipeline(context.getCommand().getPipelineName());
+
+        return pipeline;
     }
 }

@@ -9,6 +9,12 @@ public abstract class BaseStep implements Step {
     public String name;
 
     protected Result doExecute(ExecuteContext context){
+        // do some thing
+        return null;
+    }
+
+    @Override
+    public Result execute(ExecuteContext context) {
         return null;
     }
 }

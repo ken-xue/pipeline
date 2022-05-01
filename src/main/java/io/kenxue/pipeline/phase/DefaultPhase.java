@@ -15,15 +15,6 @@ public class DefaultPhase extends BasePhase{
 
     @Override
     public Result execute(ExecuteContext context) {
-        boolean parallel = isParallel();
-        List<Step> steps = stepManager.getSteps(this.steps);
-        if (parallel){
-
-        }else {
-            steps.forEach(s->{
-                Result execute = s.execute(context);
-            });
-        }
         return this.doExecute(context);
     }
 

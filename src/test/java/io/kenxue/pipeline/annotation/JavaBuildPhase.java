@@ -4,7 +4,7 @@ import io.kenxue.pipeline.resolver.ExecuteContext;
 
 import javax.annotation.Resource;
 
-@Phase
+@Phase(name = "JavaBuildPhase")
 public class JavaBuildPhase {
 
     @Resource
@@ -14,7 +14,7 @@ public class JavaBuildPhase {
     //省略其它step
 
     public void execute(ExecuteContext context){
-
+        System.out.println("JavaBuildPhase");
     }
 
 }

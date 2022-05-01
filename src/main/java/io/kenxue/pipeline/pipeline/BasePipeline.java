@@ -1,6 +1,8 @@
 package io.kenxue.pipeline.pipeline;
 
+import io.kenxue.pipeline.phase.Phase;
 import io.kenxue.pipeline.phase.PhaseManager;
+import io.kenxue.pipeline.resolver.DefaultResult;
 import io.kenxue.pipeline.resolver.ExecuteContext;
 import io.kenxue.pipeline.resolver.Result;
 import lombok.Data;
@@ -14,7 +16,13 @@ public class BasePipeline implements Pipeline {
     private PhaseManager phaseManager;
 
     public Result doExecute(ExecuteContext context){
-        return null;
+        Result result = new DefaultResult();
+        List<String> phases = getPhases();
+        phases.forEach(phaseName->{
+            Phase phase = getPhaseManager().getPhase(phaseName);
+            result.add(phase.getName(),phase.execute(context));
+        });
+        return result;
     }
 
     @Override

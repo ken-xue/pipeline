@@ -5,22 +5,19 @@ import io.kenxue.pipeline.factory.PipelineResolverFactoryBean;
 import io.kenxue.pipeline.pipeline.Pipeline;
 import io.kenxue.pipeline.resolver.ExecuteContext;
 import io.kenxue.pipeline.resolver.Result;
-import org.junit.jupiter.api.Test;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.junit.Test;
 
-@SpringBootTest
 class PipelineApplicationTests {
 
     @Test
-    void contextLoads() {
-    }
-
-    @Test
-    void appPipelineTest() {
+    public void appPipelineTest() {
         PipelineResolverFactoryBean pipelineResolverFactoryBean = new PipelineResolverFactoryBean();
-        Pipeline pipeline = pipelineResolverFactoryBean.pipelineResolver.getPipeline(JavaAppPipeline.class.getName());
         ExecuteContext executeContext = new ExecuteContext();
+        executeContext.setCommand(() -> JavaAppPipeline.class.getName());
+        Pipeline pipeline = pipelineResolverFactoryBean.getDefaultPipelineResolver().resolverPipeline(executeContext);
         Result result = pipeline.execute(executeContext);
+        System.out.println(result.getAll());
+        System.out.println(result);
     }
 
 

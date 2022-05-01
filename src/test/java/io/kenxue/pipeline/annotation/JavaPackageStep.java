@@ -6,7 +6,7 @@ import io.kenxue.pipeline.resolver.ExecuteContext;
 public class JavaPackageStep {
 
     public void execute(ExecuteContext context){
-
+        System.out.println("JavaBuildPackageStep");
     }
 
 }

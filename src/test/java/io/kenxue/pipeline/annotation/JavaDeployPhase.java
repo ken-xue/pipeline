@@ -4,7 +4,7 @@ import io.kenxue.pipeline.resolver.ExecuteContext;
 
 import javax.annotation.Resource;
 
-@Phase
+@Phase(name = "JavaDeployPhase",parallel = true,corePoolSize = 2)
 public class JavaDeployPhase {
 
     @Resource
@@ -14,7 +14,7 @@ public class JavaDeployPhase {
     //省略其它step
 
     public void execute(ExecuteContext context){
-
+        System.out.println("JavaDeployPhase");
     }
 
 }

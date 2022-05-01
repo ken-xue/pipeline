@@ -1,8 +1,9 @@
 package io.kenxue.pipeline.executor;
 
-import io.kenxue.pipeline.resolver.ExecuteContext;
 import io.kenxue.pipeline.resolver.Result;
 
+import java.util.concurrent.FutureTask;
+
 public interface ExecutorService {
-    Result execute(ExecuteContext context);
+    Result execute(FutureTask futureTask);
 }
