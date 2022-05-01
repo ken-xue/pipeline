@@ -2,27 +2,30 @@ package io.kenxue.pipeline.loader;
 
 import io.kenxue.pipeline.pipeline.PipelineDefinition;
 
+import java.util.LinkedList;
 import java.util.List;
 
 public class AnnotatedPipelineDefinitionLoader extends BasePipelineDefinitionLoader{
 
     @Override
     public List<PipelineDefinition> reloadAll() {
-        return super.reloadAll();
+        return doReloadAll();
     }
 
     @Override
     public PipelineDefinition reload(String name) {
-        return super.reload(name);
+        return doReload(name);
     }
 
     @Override
     protected List<PipelineDefinition> doReloadAll() {
-        return super.doReloadAll();
+        List<PipelineDefinition> pipelineDefinitions = new LinkedList<>();
+        return pipelineDefinitions;
     }
 
     @Override
     protected PipelineDefinition doReload(String name) {
-        return super.doReload(name);
+        PipelineDefinition pipelineDefinition = new PipelineDefinition();
+        return pipelineDefinition;
     }
 }

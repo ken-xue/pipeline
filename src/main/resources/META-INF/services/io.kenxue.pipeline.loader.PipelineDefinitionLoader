@@ -1,0 +1,2 @@
+io.kenxue.pipeline.loader.MysqlPipelineDefinitionLoader
+io.kenxue.pipeline.loader.AnnotatedPipelineDefinitionLoader

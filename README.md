@@ -22,3 +22,7 @@
 ## License
 
 MIT see [LICENSE](./LICENSE).
+
+## Class Graph
+
+![img](pipeline.png)
