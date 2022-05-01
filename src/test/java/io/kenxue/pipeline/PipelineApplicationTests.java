@@ -7,7 +7,7 @@ import io.kenxue.pipeline.resolver.ExecuteContext;
 import io.kenxue.pipeline.resolver.Result;
 import org.junit.Test;
 
-class PipelineApplicationTests {
+public class PipelineApplicationTests {
 
     @Test
     public void appPipelineTest() {
