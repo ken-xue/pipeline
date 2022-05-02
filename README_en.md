@@ -15,21 +15,21 @@
   <a title="GitHub Forks" target="_blank" href="https://github.com/ken-xue/pipeline/network/members"><img alt="GitHub Forks" src="https://img.shields.io/github/forks/ken-xue/pipeline.svg?label=Forks&style=social"></a>
 </p>
 
-<p align="center"> 中文简体  |  <a title="Englist" href="README_en.md"> English</a></p>
+<p align="center"><a title="Chinese" href="README.md"> 中文简体</a>  |  English</p>
 
-## 简介
+## Introduction
 
-> 轻量级的流程编排执行引擎,支持从代码、XML和数据库加载流程进行执行。
+> Lightweight process orchestration execution engine that supports loading processes from code and databases for execution.
 
-## 快速开始
+## QuickStart
 
-1.安装到本地
+1.install
 ```java
 git clone https://github.com/ken-xue/pipeline.git
 cd pipeline
 mvn clean install
 ```
-2.导入依赖
+2.import
 ```xml
 <dependency>
     <groupId>io.kenxue.pipeline</groupId>
@@ -37,16 +37,16 @@ mvn clean install
     <version>1.0.0</version>
 </dependency>
 ```
-3.添加Bean扫描路径
+3.add bean scan package
 
 ```java
 @SpringBootApplication(scanBasePackages = { "io.kenxue.pipeline"})
 ```
 
-## 许可证
+## License
 
 MIT see [LICENSE](./LICENSE).
 
-## 类图
+## Class Graph
 
 ![img](pipeline.png)

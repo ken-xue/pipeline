@@ -1,10 +1,13 @@
 package io.kenxue.pipeline.phase;
 
+import org.springframework.stereotype.Component;
+
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@Component
 public class DefaultPhaseManager implements PhaseManager{
 
     public Map<String,Phase> phases = new HashMap<>(2<<4);

@@ -4,9 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>io.kenxue.pipeline</groupId>
     <artifactId>pipeline</artifactId>
-    <version>0.0.1-SNAPSHOT</version>
+    <version>1.0.0</version>
     <name>pipeline</name>
-    <description>Demo project for Spring Boot</description>
+    <description>pipeline</description>
 
 
     <properties>
@@ -16,6 +16,17 @@
 
 
     <dependencies>
+
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-core</artifactId>
+            <version>5.3.18</version>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework</groupId>
+            <artifactId>spring-context</artifactId>
+            <version>5.3.18</version>
+        </dependency>
 
         <dependency>
             <groupId>org.projectlombok</groupId>

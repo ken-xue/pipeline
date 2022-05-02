@@ -6,7 +6,9 @@ import io.kenxue.pipeline.pipeline.Pipeline;
 import io.kenxue.pipeline.resolver.ExecuteContext;
 import io.kenxue.pipeline.resolver.Result;
 import org.junit.Test;
+import org.springframework.stereotype.Component;
 
+@Component
 public class PipelineTests {
 
     @Test
