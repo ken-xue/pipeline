@@ -1,30 +1,26 @@
 package io.kenxue.pipeline.factory;
 
-import io.kenxue.pipeline.resolver.ExecuteContext;
-import io.kenxue.pipeline.resolver.Result;
 import io.kenxue.pipeline.step.StepDefinition;
 import io.kenxue.pipeline.step.StepI;
-import org.reflections.Reflections;
 
 public class DefaultStepFactory implements StepFactory{
-
+    /**
+     * create a step instance by definition
+     * @param definition
+     * @return a step instance
+     */
     @Override
     public StepI create(StepDefinition definition) {
         String stepName = definition.getName();
+        StepI stepI = null;
+        try {
+            Class<?> clazz = Class.forName(stepName);
+            stepI = (StepI) clazz.newInstance();
 
-        Reflections reflections = new Reflections("io.kenxue.pipeline");
+        }catch (Exception e){
+            e.printStackTrace();
+        }
 
-        StepI stepI = new StepI() {
-            @Override
-            public Result execute(ExecuteContext context) {
-                return null;
-            }
-
-            @Override
-            public String getName() {
-                return stepName;
-            }
-        };
         return stepI;
     }
 }

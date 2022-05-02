@@ -24,7 +24,10 @@ public class DefaultPipelineFactory extends PipelineFactory {
         List<PhaseDesc> phases = pipelineDefinition.getPhases();
         if (Objects.nonNull(phases) && phases.size() > 0) {
             Collections.sort(phases, Comparator.comparingInt(a -> (a.getOrder() == null ? -1 : a.getOrder())));
-            //phases.forEach(v->pipeline.set);
+            pipeline.setName(pipelineDefinition.getName());
+            phases.forEach(v->{
+
+            });
         }
         return pipeline;
     }
